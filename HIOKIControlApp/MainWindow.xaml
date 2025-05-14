@@ -1,0 +1,138 @@
+﻿<Window
+    x:Class="HIOKIControlApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:HIOKIControlApp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:nodify="https://miroiu.github.io/nodify"
+    Title="MainWindow"
+    Width="785"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid Margin="0,0,71,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="27*" />
+            <RowDefinition Height="130*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <nodify:NodifyEditor
+            Grid.Column="1"
+            Margin="0,6,10,0"
+            ItemsSource="{Binding Nodes}"
+            d:LayoutOverrides="HorizontalAlignment">
+            <nodify:NodifyEditor.ItemTemplate>
+                <DataTemplate DataType="{x:Type local:NodeViewModel}">
+                    <nodify:Node Header="{Binding Title}" />
+                </DataTemplate>
+            </nodify:NodifyEditor.ItemTemplate>
+        </nodify:NodifyEditor>
+
+
+
+
+
+        <Label
+            Width="54"
+            Height="23"
+            Margin="10,13,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Port"
+            d:LayoutOverrides="HorizontalAlignment" />
+        <Button
+            x:Name="Button1"
+            Width="49"
+            Height="20"
+            Margin="27,64,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button1_Click"
+            Content="Connect"
+            d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
+        <Button
+            x:Name="Button2"
+            Height="20"
+            Margin="100,64,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button2_Click"
+            Content="Disconnect"
+            d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
+        <Button
+            x:Name="Button3"
+            Width="40"
+            Height="20"
+            Margin="184,64,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button3_Click"
+            Content="커멘드"
+            d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
+        <Button
+            x:Name="Button4"
+            Width="28"
+            Height="20"
+            Margin="27,100,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button4_Click"
+            Content="시작"
+            d:LayoutOverrides="HorizontalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin" />
+        <Button
+            x:Name="Button5"
+            Width="28"
+            Height="20"
+            Margin="66,100,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button5_Click"
+            Content="멈춤"
+            d:LayoutOverrides="HorizontalAlignment, LeftMargin, RightMargin, TopMargin, BottomMargin" />
+        <Button
+            x:Name="Button6"
+            Width="40"
+            Height="20"
+            Margin="112,100,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button6_Click"
+            Content="명령어"
+            d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
+        <Label
+            x:Name="Label1"
+            Grid.Row="1"
+            Height="0"
+            Margin="10,23,10,0"
+            VerticalAlignment="Top"
+            Content="Label"
+            d:LayoutOverrides="HorizontalAlignment" />
+        <ListBox
+            x:Name="ListBox1"
+            Grid.Row="2"
+            Margin="0,130,0,0"
+            d:ItemsSource="{d:SampleData ItemCount=5}" />
+        <TextBox
+            x:Name="TextBox2"
+            Grid.Row="2"
+            Margin="0,0,10,135"
+            Text="TextBox"
+            TextWrapping="Wrap"
+            d:LayoutOverrides="HorizontalAlignment" />
+        <ListBox
+            x:Name="PortListBox"
+            Height="30"
+            Margin="92,6,0,158"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            d:ItemsSource="{d:SampleData ItemCount=5}" />
+
+
+    </Grid>
+</Window>
